@@ -1,0 +1,29 @@
+use clap::{Parser, Subcommand};
+
+#[derive(Parser)]
+#[command(name = "runner")]
+pub struct Cli {
+    #[command(subcommand)]
+    pub command: Commands,
+
+    #[arg(short, long)]
+    pub verbose: bool,
+
+    #[arg(short = 'q', long)]
+    pub no_output: bool,
+}
+
+#[derive(Subcommand)]
+pub enum Commands {
+    Qa,
+    Publish,
+
+    Push {
+        title: String,
+        description: Vec<String>,
+    },
+
+    Test {
+        crates: Vec<String>,
+    },
+}

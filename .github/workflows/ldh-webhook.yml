@@ -1,0 +1,16 @@
+name: ldh_webhook
+on: [push, pull_request]
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout main
+        uses: actions/checkout@v4
+
+      - name: discord webhook
+        uses: sarisia/actions-status-discord@v1
+        if: always()
+        with:
+          webhook: ${{ secrets.LDH_WEBHOOK }}

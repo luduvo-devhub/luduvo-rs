@@ -1,0 +1,24 @@
+[package]
+name = "luduvo-dom"
+description = "a rust library for manipulating luduvo's `.ldv` files"
+version = "0.1.0"
+authors = ["primiti_ve"]
+readme = "README.md"
+repository = "https://github.com/luduvo-devhub/luduvo-rs"
+license = "MIT"
+edition = "2024"
+
+[dependencies]
+fixedstr = "0.5.10"
+thiserror = "2.0.18"
+log = { workspace = true }
+
+[features]
+default = ["prelude"]
+prelude = []
+
+[package.metadata.docs.rs]
+all-features = false
+no-default-features = true
+features = []
+targets = []

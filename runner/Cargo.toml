@@ -1,0 +1,10 @@
+[package]
+name = "runner"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1"
+colored = "2"
+dotenvy = "0.15"
+clap = { version = "4", features = ["derive"] }
