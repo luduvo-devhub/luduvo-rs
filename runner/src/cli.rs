@@ -19,8 +19,8 @@ pub enum Commands {
     Publish,
 
     Push {
-        title: String,
-        description: Vec<String>,
+        #[arg(required = true)]
+        message: Vec<String>,
     },
 
     Test {

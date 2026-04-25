@@ -17,10 +17,7 @@ fn main() -> Result<()> {
         Commands::Qa => commands::qa::run(cli.verbose, cli.no_output),
         Commands::Publish => commands::publish::run(cli.verbose, cli.no_output),
 
-        Commands::Push { title, description } => {
-            commands::push::run(&title, &description, cli.no_output)
-        }
-
+        Commands::Push { message } => commands::push::run(&message, cli.no_output),
         Commands::Test { crates } => commands::test::run(crates, cli.verbose, cli.no_output),
     }
 }
