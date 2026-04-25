@@ -1,3 +1,8 @@
+# build
 /target
-ci.exe
+
+# environment variables
 .env
+
+# config
+rustfmt.toml

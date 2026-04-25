@@ -38,6 +38,7 @@ fn build_args(verbose: bool) -> Vec<&'static str> {
     if verbose {
         v.push("--verbose");
     }
+
     v
 }
 
