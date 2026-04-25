@@ -9,7 +9,7 @@
 ---
 
 <p align="center">
-  <i>luduvo-rs</i> is a collection of rust crates designed for interacting with different parts luduvo.
+  <i>luduvo-rs</i> is a collection of rust crates designed for interacting with luduvo.
 </p>
 
 > [!WARNING]
@@ -20,10 +20,16 @@
 
 ---
 
+## installation
+
+see crate-specific installation guides in their respective folders.
+
 ## member crates
 
-- [luduvo-api](https://github.com/luduvo-devhub/luduvo-rs/tree/main/crates/api)
-- [luduvo-dom](https://github.com/luduvo-devhub/luduvo-rs/tree/main/crates/dom)
+| directory   | crate                                                                                               | Notes                                                       |
+| ---         | ---                                                                                                 | ---                                                         |
+| crates/api  | [![crates.io](https://img.shields.io/crates/v/luduvo-api.svg)](https://crates.io/crates/luduvo-api) | used for interacting with the luduvo api                    |
+| crates/dom  | [![crates.io](https://img.shields.io/crates/v/luduvo-dom.svg)](https://crates.io/crates/luduvo-dom) | used for interacting with the `.ldv` file format            |
 
 ## acknowledgements
 

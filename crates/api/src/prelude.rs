@@ -31,7 +31,6 @@
 //! - [`FriendsClient`]
 //! - [`FriendsError`]
 //!
-//!
 //! ### query api
 //! - [`Query`]
 //! - [`QueryClient`]

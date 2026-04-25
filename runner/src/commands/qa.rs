@@ -18,7 +18,7 @@ pub fn run(verbose: bool, no_output: bool) -> Result<()> {
 
     println!("{}", "\nrunning tests (via test command)...".cyan().bold());
 
-    test::run(vec!["all".to_string()], verbose, no_output)?;
+    test::run(Some(vec!["all".to_string()]), verbose, no_output)?;
 
     println!("{}", "\nrunning clippy...".cyan().bold());
 

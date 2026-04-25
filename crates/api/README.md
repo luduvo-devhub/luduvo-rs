@@ -23,15 +23,35 @@
 
 ---
 
+## installation
+
+luduvo-api is currently not on crates.io - i'm waiting for the post-delete cooldown to end.
+
+```
+cargo add luduvo-api
+```
+
+to install the latest (and unstable) version of luduvo-api:
+
+```
+cargo add luduvo-api --git https://github.com/luduvo-devhub/luduvo-rs.git
+```
+
 ## features
 
 > [!TIP]
 > most users will want to import the prelude, via `luduvo_api::prelude::*`
 
+### unauthorized
+
 - user profile data (search by id, one result)
 - user friends data (search by id, multiple results)
 - user querying (search by username, multiple results)
 - places data (search by name, multiple results)
+
+### authorized
+
+- none yet...
 
 ## quick start
 

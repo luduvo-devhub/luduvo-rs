@@ -15,12 +15,14 @@ fn main() -> Result<()> {
 
     match cli.command {
         Commands::Qa => commands::qa::run(cli.verbose, cli.no_output),
-        Commands::Publish => commands::publish::run(cli.verbose, cli.no_output),
+        Commands::Publish { crates } => commands::publish::run(crates, cli.verbose, cli.no_output),
 
-        Commands::Push { title, description } => {
-            commands::push::run(&title, description.as_deref(), cli.no_output)
+        Commands::Push { title, description, publish } => {
+            commands::push::run(&title, description.as_deref(), cli.verbose, publish, cli.no_output)
         }
 
-        Commands::Test { crates } => commands::test::run(crates, cli.verbose, cli.no_output),
+        Commands::Test { crates } => {
+            commands::test::run(crates, cli.verbose, cli.no_output)
+        },
     }
 }

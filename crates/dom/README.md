@@ -23,6 +23,20 @@
 
 ---
 
+## installation
+
+luduvo-dom is currently not on crates.io - i'm waiting for the post-delete cooldown to end.
+
+```
+cargo add luduvo-dom
+```
+
+to install the latest (and unstable) version of luduvo-dom:
+
+```
+cargo add luduvo-dom --git https://github.com/luduvo-devhub/luduvo-rs.git
+```
+
 ## features
 
 > [!TIP]
