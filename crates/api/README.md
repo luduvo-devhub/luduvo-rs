@@ -18,6 +18,9 @@
 > [!IMPORTANT]
 > this library is in a pre-1.0.0 state! expect breaking changes between versions.
 
+> [!NOTE]
+> this crate is MIT-licensed. feel free to do whatever with it! all contributions (pull requests, issues) are welcomed, including to the docs.
+
 ---
 
 ## features
@@ -46,15 +49,16 @@ async fn main() {
 }
 ```
 
-## contributors
+## acknowledgements
 
-> [!NOTE]
-> this crate is MIT-licensed. feel free to do whatever with it! all contributions (pull requests, issues) are welcomed, including to the docs.
+luduvo-rs would not be possible without the amazing oss community!
+
+### packages
+
+- [reqwest](https://crates.io/crates/reqwest) - an ergonomic http client
+- [serde](https://crates.io/crates/serde) - converting api responses to rust structs
+- [thiserror](https://crates.io/crates/thiserror) - graceful error handling via the error types
+
+### contributors
 
 - [Eeviika](https://github.com/Eeviika) for [#1](https://github.com/luduvo-devhub/luduvo-rs/pull/1) (Small changes)
-
-## need help?
-
-- contact me on discord! my discord username is `@primiti_ve`.
-    - my preferred method of communication is joining the [luduvo development hub](https://discord.gg/FcjTvuWKRk)! it's full of like-minded developers who will gladly help you out with any issues.
-- [create an issue](https://github.com/luduvo-devhub/luduvo-rs/issues)! this is better for organisation purposes, although you should also join the luduvo development hub aswell.

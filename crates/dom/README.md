@@ -18,6 +18,9 @@
 > [!IMPORTANT]
 > this library is in a pre-1.0.0 state! expect breaking changes between versions.
 
+> [!NOTE]
+> this crate is MIT-licensed. feel free to do whatever with it! all contributions (pull requests, issues) are welcomed.
+
 ---
 
 ## features
@@ -54,15 +57,15 @@ fn main() -> std::io::Result<()> {
 }
 ```
 
-## contributors
+## acknowledgements
 
-> [!NOTE]
-> this crate is MIT-licensed. feel free to do whatever with it! all contributions (pull requests, issues) are welcomed.
+luduvo-dom would not be possible without the amazing oss community!
+
+### packages
+
+- [fixedstr](https://crates.io/crates/fixedstr) - `str64` type, used in `LdvString`
+- [thiserror](https://crates.io/crates/thiserror) - graceful error handling via the error type
+
+### contributors
 
 - [Uzixt](Uzixt) for [documentation on the .ldv file spec](https://github.com/Uzixt/LdvFileSpec)
-
-## need help?
-
-- contact me on discord! my discord username is `@primiti_ve`.
-    - my preferred method of communication is joining the [luduvo development hub](https://discord.gg/FcjTvuWKRk)! it's full of like-minded developers who will gladly help you out with any issues.
-- [create an issue](https://github.com/luduvo-devhub/luduvo-rs/issues)! this is better for organisation purposes, although you should also join the luduvo development hub aswell.

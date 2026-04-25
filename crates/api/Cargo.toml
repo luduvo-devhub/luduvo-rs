@@ -12,7 +12,6 @@ edition = "2024"
 reqwest = { version = "0.13", features = ["json"] }
 serde = { version = "1", features = ["derive"] }
 thiserror = "2"
-log = { workspace = true }
 
 [dev-dependencies]
 wiremock = "0.6"

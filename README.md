@@ -25,6 +25,14 @@
 - [luduvo-api](https://github.com/luduvo-devhub/luduvo-rs/tree/main/crates/api)
 - [luduvo-dom](https://github.com/luduvo-devhub/luduvo-rs/tree/main/crates/dom)
 
+## acknowledgements
+
+luduvo-rs would not be possible without the amazing oss community! see crate-specific acknowledgements in their respective folders.
+
+## prior work
+
+luduvo-rs builds off of the work done by [luduvo-rs-old](https://github.com/luduvo-devhub/luduvo-rs-old) and [ldv-rs](https://github.com/luduvo-devhub/ldv-rs) for the `api` and `dom` subcrates respectively.
+
 ## need help?
 
 - contact me on discord! my discord username is `@primiti_ve`.

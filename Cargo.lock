@@ -849,7 +849,6 @@ checksum = "112b39cec0b298b6c1999fee3e31427f74f676e4cb9879ed1a121b43661a4154"
 name = "luduvo-api"
 version = "0.1.0"
 dependencies = [
- "log",
  "reqwest",
  "serde",
  "serde_json",
@@ -863,7 +862,6 @@ name = "luduvo-dom"
 version = "0.1.0"
 dependencies = [
  "fixedstr",
- "log",
  "thiserror 2.0.18",
 ]
 
