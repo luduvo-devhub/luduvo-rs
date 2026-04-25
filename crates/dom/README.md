@@ -1,12 +1,16 @@
 <p align="center">
-  <i>luduvo-dom</i> is a rust library designed for interacting with the `.ldv` file format.
+  <img src="https://github.com/luduvo-devhub/luduvo-rs/blob/main/gh-assets/wordmark.png?raw=true" alt="luduvo-rs wordmark" height="256"/>
 </p>
 
 <p align="center">
-   <a href="https://crates.io/crates/luduvo-rs">crates.io</a> | <a href="https://discord.gg/FcjTvuWKRk">luduvo development hub</a>
+  <a href="https://discord.gg/FcjTvuWKRk">luduvo development hub</a>
 </p>
 
 ---
+
+<p align="center">
+  <i>luduvo-dom</i> is a rust library designed for interacting with the `.ldv` file format.
+</p>
 
 > [!WARNING]
 > this crate is completely fanmade and has no affiliation with the luduvo devs.
