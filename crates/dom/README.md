@@ -6,6 +6,8 @@
   <a href="https://discord.gg/FcjTvuWKRk">luduvo development hub</a>
 </p>
 
+[![crates.io](https://img.shields.io/crates/v/luduvo-dom.svg)](https://crates.io/crates/luduvo-dom)
+
 ---
 
 <p align="center">
