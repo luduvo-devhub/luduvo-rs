@@ -8,3 +8,8 @@ anyhow = "1"
 colored = "2"
 dotenvy = "0.15"
 clap = { version = "4", features = ["derive"] }
+
+# docgen
+syn = { version = "2", features = ["full"] }
+quote = "1"
+walkdir = "2"

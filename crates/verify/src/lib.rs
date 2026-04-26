@@ -2,7 +2,7 @@
 
 use std::result::Result;
 
-use luduvo_api::users::profile;
+use luduvo_api::users::profile::{Client as ProfileClient, Error as ProfileError};
 use rand::{RngExt, rngs::ThreadRng};
 use thiserror::Error;
 
@@ -13,7 +13,7 @@ pub mod codegen;
 #[derive(Debug, Error)]
 pub enum Error {
     #[error("{0}")]
-    ProfileError(#[from] profile::Error),
+    ProfileError(#[from] ProfileError),
 
     #[error("user not found")]
     UserNotFound,
@@ -56,7 +56,7 @@ impl Default for Settings {
 
 pub struct Client {
     pub rng: ThreadRng,
-    pub client: profile::Client,
+    pub client: ProfileClient,
 
     pub settings: Settings,
 }
@@ -65,7 +65,7 @@ impl Client {
     pub fn new(settings: Option<Settings>) -> Self {
         Client {
             rng: rand::rng(),
-            client: profile::Client::new(None),
+            client: ProfileClient::new(None),
 
             settings: settings.unwrap_or_default(),
         }

@@ -1,8 +1,16 @@
 # build
 /target
+.venv
+site
+.cache
+
+# lock files
+Cargo.lock
+uv.lock
 
 # environment variables
 .env
 
 # config
 rustfmt.toml
+.python-version

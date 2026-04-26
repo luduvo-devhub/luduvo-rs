@@ -1252,6 +1252,9 @@ dependencies = [
  "clap",
  "colored",
  "dotenvy",
+ "quote",
+ "syn",
+ "walkdir",
 ]
 
 [[package]]

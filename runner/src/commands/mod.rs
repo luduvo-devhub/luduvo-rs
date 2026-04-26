@@ -1,3 +1,4 @@
+pub mod docgen;
 pub mod new;
 pub mod publish;
 pub mod push;

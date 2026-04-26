@@ -3,7 +3,7 @@ use clap::{Parser, Subcommand};
 #[derive(Parser)]
 #[command(
     name = "runner",
-    about = "a fancy command runner that replaces github actions"
+    about = "a fancy command runner, designed specifically for luduvo-rs"
 )]
 pub struct Cli {
     #[command(subcommand)]
@@ -18,8 +18,23 @@ pub struct Cli {
 
 #[derive(Subcommand)]
 pub enum Commands {
-    #[command(name = "qa", about = "runs tests and ensures code quality")]
-    Qa,
+    #[command(
+        name = "docgen",
+        about = "automatically generate zensical markdown docs from doc comments"
+    )]
+    Docgen {
+        #[arg(short, long, help = "whether to not serve via `uvx zensical serve`")]
+        no_serve: bool,
+    },
+
+    #[command(about = "add a new crate to the crates directory")]
+    New {
+        #[arg(help = "the name of the crate")]
+        crate_name: String,
+
+        #[arg(help = "the dependencies of the crate to add")]
+        dependencies: Option<Vec<String>>,
+    },
 
     #[command(about = "publish a crate to crates.io")]
     Publish {
@@ -39,18 +54,12 @@ pub enum Commands {
         publish: bool,
     },
 
+    #[command(name = "qa", about = "runs tests and ensures code quality")]
+    Qa,
+
     #[command(about = "run tests for a crate")]
     Test {
         #[arg(help = "the crates to run tests for")]
         crates: Option<Vec<String>>,
-    },
-
-    #[command(about = "add a new crate to the crates directory")]
-    New {
-        #[arg(help = "the name of the crate")]
-        crate_name: String,
-
-        #[arg(help = "the dependencies of the crate to add")]
-        dependencies: Option<Vec<String>>,
     },
 }

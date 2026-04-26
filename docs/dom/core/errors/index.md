@@ -1,0 +1,3 @@
+# Errors
+
+- [DecodeError](DecodeError.md)

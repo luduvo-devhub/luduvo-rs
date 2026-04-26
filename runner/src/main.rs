@@ -17,6 +17,8 @@ fn main() -> Result<()> {
 
     match cli.command {
         Commands::Qa => commands::qa::run(cli.verbose, cli.no_output),
+        Commands::Docgen { no_serve } => commands::docgen::run(no_serve, cli.verbose, cli.no_output),
+
         Commands::Publish { crates } => commands::publish::run(crates, cli.verbose, cli.no_output),
         Commands::Test { crates } => commands::test::run(crates, cli.verbose, cli.no_output),
 
