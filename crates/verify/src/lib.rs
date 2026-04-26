@@ -28,11 +28,6 @@ pub enum Mode {
     Bio,
 }
 
-#[derive(Copy, Clone, Debug)]
-pub struct DiscordUser {
-    pub id: usize,
-}
-
 #[derive(Debug)]
 pub struct Settings {
     pub mode: Mode,
@@ -83,7 +78,6 @@ impl Client {
     pub async fn is_verified(
         &mut self,
         luduvo_username: String,
-        discord_user: DiscordUser,
         code: String,
     ) -> Result<bool, Error> {
         let user = self.client.get_user_by_username(luduvo_username).await?;

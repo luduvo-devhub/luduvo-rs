@@ -1,4 +1,4 @@
-use luduvo_verify::{Client, DiscordUser, Settings, codegen::CodeComplexity};
+use luduvo_verify::{Client, Settings, codegen::CodeComplexity};
 use std::io::{self, Write};
 
 #[tokio::main]
@@ -7,7 +7,6 @@ async fn main() {
     let mut client = Client::new(Some(settings));
 
     let code = client.generate_code(Some(CodeComplexity::Low)).to_string();
-    let user = DiscordUser { id: 0 };
 
     println!("verification code: {}", code);
 
@@ -21,7 +20,7 @@ async fn main() {
         io::stdin().read_line(&mut input).unwrap();
 
         match client
-            .is_verified("primiti_ve".to_string(), user, code.clone())
+            .is_verified("primiti_ve".to_string(), code.clone())
             .await
         {
             Ok(true) => {

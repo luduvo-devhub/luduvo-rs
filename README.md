@@ -26,10 +26,11 @@ see crate-specific installation guides in their respective folders.
 
 ## member crates
 
-| directory   | crate                                                                                               | Notes                                                       |
-| ---         | ---                                                                                                 | ---                                                         |
-| crates/api  | [![crates.io](https://img.shields.io/crates/v/luduvo-api.svg)](https://crates.io/crates/luduvo-api) | used for interacting with the luduvo api                    |
-| crates/dom  | [![crates.io](https://img.shields.io/crates/v/luduvo-dom.svg)](https://crates.io/crates/luduvo-dom) | used for interacting with the `.ldv` file format            |
+| directory     | crate                                                                                                     | description                                                 |
+| ---           | ---                                                                                                       | ---                                                         |
+| crates/api    | [![crates.io](https://img.shields.io/crates/v/luduvo-api.svg)](https://crates.io/crates/luduvo-api)       | used for interacting with the luduvo api                    |
+| crates/dom    | [![crates.io](https://img.shields.io/crates/v/luduvo-dom.svg)](https://crates.io/crates/luduvo-dom)       | used for interacting with the `.ldv` file format            |
+| crates/verify | [![crates.io](https://img.shields.io/crates/v/luduvo-verify.svg)](https://crates.io/crates/luduvo-verify) | used for verifying a luduvo account belongs to a user       |
 
 ## acknowledgements
 
