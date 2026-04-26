@@ -1,7 +1,10 @@
 use clap::{Parser, Subcommand};
 
 #[derive(Parser)]
-#[command(name = "runner", about = "a fancy command runner that replaces github actions")]
+#[command(
+    name = "runner",
+    about = "a fancy command runner that replaces github actions"
+)]
 pub struct Cli {
     #[command(subcommand)]
     pub command: Commands,
@@ -15,7 +18,7 @@ pub struct Cli {
 
 #[derive(Subcommand)]
 pub enum Commands {
-    #[command(name = "qa", about = "runs tests and makes sure code quality is good")]
+    #[command(name = "qa", about = "runs tests and ensures code quality")]
     Qa,
 
     #[command(about = "publish a crate to crates.io")]
@@ -26,19 +29,28 @@ pub enum Commands {
 
     #[command(about = "push your changes to the luduvo-rs repo")]
     Push {
-            #[arg(short, long)]
-            title: String,
+        #[arg(short, long)]
+        title: String,
 
-            #[arg(short, long)]
-            description: Option<String>,
+        #[arg(short, long)]
+        description: Option<String>,
 
-            #[arg(short = 'p', long)]
-            publish: bool,
-        },
+        #[arg(short = 'p', long)]
+        publish: bool,
+    },
 
     #[command(about = "run tests for a crate")]
     Test {
         #[arg(help = "the crates to run tests for")]
         crates: Option<Vec<String>>,
+    },
+
+    #[command(about = "add a new crate to the crates directory")]
+    New {
+        #[arg(help = "the name of the crate")]
+        crate_name: String,
+
+        #[arg(help = "the dependencies of the crate to add")]
+        dependencies: Option<Vec<String>>,
     },
 }

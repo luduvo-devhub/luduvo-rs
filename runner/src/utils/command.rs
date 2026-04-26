@@ -1,11 +1,10 @@
 use anyhow::Result;
 use std::process::{Command, Stdio};
 
-pub fn run_command(dir: &str, cmd: &str, args: &[&str], no_output: bool) -> Result<()> {
+pub fn run_command(dir: String, cmd: String, args: &[String], no_output: bool) -> Result<()> {
     println!("> {} {}", cmd, args.join(" "));
 
-    let mut command = Command::new(cmd);
-    
+    let mut command = Command::new(&cmd);
     command.args(args).current_dir(dir);
 
     configure_stdio(&mut command, no_output);
@@ -14,7 +13,6 @@ pub fn run_command(dir: &str, cmd: &str, args: &[&str], no_output: bool) -> Resu
 
     if !status.success() {
         println!("command failed: {} {}", cmd, args.join(" "));
-        
         std::process::exit(1);
     }
 
@@ -22,16 +20,16 @@ pub fn run_command(dir: &str, cmd: &str, args: &[&str], no_output: bool) -> Resu
 }
 
 pub fn run_command_with_env(
-    dir: &str,
-    cmd: &str,
-    args: &[&str],
-    envs: &[(&str, &str)],
+    dir: String,
+    cmd: String,
+    args: &[String],
+    envs: &[(String, String)],
     no_output: bool,
 ) -> Result<()> {
     println!("> {} {}", cmd, args.join(" "));
 
-    let mut command = Command::new(cmd);
-    
+    let mut command = Command::new(&cmd);
+
     command.args(args).current_dir(dir);
 
     for (k, v) in envs {
@@ -44,7 +42,7 @@ pub fn run_command_with_env(
 
     if !status.success() {
         println!("command failed: {} {}", cmd, args.join(" "));
-        
+
         std::process::exit(1);
     }
 

@@ -1,9 +1,3 @@
-//! # profile api
-//!
-//! this module contains structs related to fetching a single luduvo user at once, *by id*.
-//!
-//! this is for searching a single user. for searching multiple users, use `luduvo_rs::users::query::Client`.
-
 use reqwest::{Client as ReqwestClient, StatusCode};
 use serde::Deserialize;
 use std::{
@@ -358,6 +352,43 @@ impl Client {
 
         if status == StatusCode::NOT_FOUND {
             return Err(Error::ProfileNotFound(id));
+        } else if status == StatusCode::TOO_MANY_REQUESTS {
+            return Err(Error::TooManyRequests());
+        } else if status == StatusCode::INTERNAL_SERVER_ERROR {
+            let reason = status.canonical_reason().unwrap_or("no error supplied");
+
+            return Err(Error::InternalError(reason.to_string()));
+        }
+
+        let response = response.error_for_status()?;
+        let profile = response.json::<Profile>().await?;
+
+        self.cache.insert(profile.clone());
+
+        Ok(profile)
+    }
+
+    /// fetches a user profile by username.
+    ///
+    /// # arguments
+    ///
+    /// * `username` - the username of the user.
+    ///
+    /// # errors
+    ///
+    /// returns:
+    /// - [`Error::ProfileNotFound`] if the profile does not exist (HTTP 404)
+    /// - [`Error::RequestFailed`] for network or decoding errors
+    /// - [`Error::TooManyRequests`] if rate limited
+    /// - [`Error::InternalError`] if server error occurs
+    pub async fn get_user_by_username(&mut self, username: String) -> Result<Profile, Error> {
+        let url = format!("{}/by-username/{}/profile", self.config.base_url, username);
+
+        let response = self.config.client.get(&url).send().await?;
+        let status = response.status();
+
+        if status == StatusCode::NOT_FOUND {
+            return Err(Error::ProfileNotFound(username));
         } else if status == StatusCode::TOO_MANY_REQUESTS {
             return Err(Error::TooManyRequests());
         } else if status == StatusCode::INTERNAL_SERVER_ERROR {

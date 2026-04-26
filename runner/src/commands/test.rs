@@ -2,23 +2,16 @@ use anyhow::Result;
 use colored::*;
 
 use crate::utils::command::run_command;
-
-const CRATES: &[&str] = &["crates/api", "crates/dom"];
+use crate::CRATES;
 
 pub fn run(crates: Option<Vec<String>>, verbose: bool, no_output: bool) -> Result<()> {
     let mut crates: Vec<String> = match crates {
         Some(c) => c,
-        None => CRATES
-            .iter()
-            .map(|c| c.replace("crates/", ""))
-            .collect(),
+        None => CRATES.iter().map(|c| c.replace("crates/", "")).collect(),
     };
 
     if crates.len() == 1 && crates[0] == "all" {
-        crates = CRATES
-            .iter()
-            .map(|c| c.replace("crates/", ""))
-            .collect();
+        crates = CRATES.iter().map(|c| c.replace("crates/", "")).collect();
     }
 
     for crate_name in crates {
@@ -26,6 +19,7 @@ pub fn run(crates: Option<Vec<String>>, verbose: bool, no_output: bool) -> Resul
 
         if !CRATES.contains(&path.as_str()) {
             println!("unknown crate: {}", crate_name);
+
             std::process::exit(1);
         }
 
@@ -35,7 +29,7 @@ pub fn run(crates: Option<Vec<String>>, verbose: bool, no_output: bool) -> Resul
             crate_name
         );
 
-        run_command(&path, "cargo", &test_args(verbose), no_output)?;
+        run_command(path, "cargo".to_string(), &test_args(verbose), no_output)?;
     }
 
     println!("{}", "all tests completed ✔️".green().bold());
@@ -43,11 +37,11 @@ pub fn run(crates: Option<Vec<String>>, verbose: bool, no_output: bool) -> Resul
     Ok(())
 }
 
-fn test_args(verbose: bool) -> Vec<&'static str> {
-    let mut v = vec!["test", "--tests"];
+fn test_args(verbose: bool) -> Vec<String> {
+    let mut v = vec!["test".to_string(), "--tests".to_string()];
 
     if verbose {
-        v.push("--verbose");
+        v.push("--verbose".to_string());
     }
 
     v

@@ -1,6 +1,6 @@
 [package]
-name = "luduvo-dom"
-description = "a rust library for manipulating luduvo's `.ldv` files"
+name = "luduvo-verify"
+description = "a rust library for verifying a users luduvo account"
 version = "0.1.0"
 authors = ["primiti_ve"]
 readme = "README.md"
@@ -9,12 +9,12 @@ license = "MIT"
 edition = "2024"
 
 [dependencies]
-fixedstr = { version = "0.5" }
 thiserror = { version = "2.0" }
+rand = { version = "0.10", features = ["thread_rng"] }
+luduvo-api = { version = "0.1.0", path = "../api" }
 
-[features]
-default = ["prelude"]
-prelude = []
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 
 [package.metadata.docs.rs]
 all-features = false

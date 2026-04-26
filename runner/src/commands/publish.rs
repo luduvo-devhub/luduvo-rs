@@ -3,24 +3,16 @@ use colored::*;
 use std::env;
 
 use crate::utils::command::run_command_with_env;
-
-const CRATES: &[&str] = &["crates/api", "crates/dom"];
+use crate::CRATES;
 
 pub fn run(crates: Option<Vec<String>>, verbose: bool, no_output: bool) -> Result<()> {
-    // Normalize input
     let mut crates: Vec<String> = match crates {
         Some(c) => c,
-        None => CRATES
-            .iter()
-            .map(|c| c.replace("crates/", ""))
-            .collect(),
+        None => CRATES.iter().map(|c| c.replace("crates/", "")).collect(),
     };
 
     if crates.len() == 1 && crates[0] == "all" {
-        crates = CRATES
-            .iter()
-            .map(|c| c.replace("crates/", ""))
-            .collect();
+        crates = CRATES.iter().map(|c| c.replace("crates/", "")).collect();
     }
 
     println!("{}", "publishing crates....".blue().bold());
@@ -33,10 +25,10 @@ pub fn run(crates: Option<Vec<String>>, verbose: bool, no_output: bool) -> Resul
         println!("{} {}", "publishing crate:".yellow(), crate_name);
 
         run_command_with_env(
-            &crate_path,
-            "cargo",
+            crate_path,
+            "cargo".to_string(),
             &publish_args(verbose),
-            &[("CARGO_REGISTRY_TOKEN", &token)],
+            &[("CARGO_REGISTRY_TOKEN".to_string(), token.to_string())],
             no_output,
         )?;
     }
@@ -46,11 +38,11 @@ pub fn run(crates: Option<Vec<String>>, verbose: bool, no_output: bool) -> Resul
     Ok(())
 }
 
-fn publish_args(verbose: bool) -> Vec<&'static str> {
-    let mut v = vec!["publish", "--allow-dirty"];
+fn publish_args(verbose: bool) -> Vec<String> {
+    let mut v = vec!["publish".to_string(), "--allow-dirty".to_string()];
 
     if verbose {
-        v.push("--verbose");
+        v.push("--verbose".to_string());
     }
 
     v

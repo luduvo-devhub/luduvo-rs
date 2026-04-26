@@ -1,9 +1,3 @@
-//! # query api
-//!
-//! this module contains structs related to fetching multiple luduvo users at a time.
-//!
-//! this is for searching multiple users. for searching a single user, use `luduvo_rs::users::profile::Client`.
-
 use reqwest::{Client as ReqwestClient, StatusCode};
 use serde::Deserialize;
 use std::{

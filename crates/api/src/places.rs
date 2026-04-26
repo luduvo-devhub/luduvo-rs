@@ -1,7 +1,3 @@
-//! # places api
-//!
-//! this module contains structs related to fetching luduvo place data.
-
 use reqwest::{Client as ReqwestClient, StatusCode};
 use serde::Deserialize;
 use std::{

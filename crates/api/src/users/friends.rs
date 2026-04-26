@@ -1,7 +1,3 @@
-//! # friends api
-//!
-//! this module contains structs related to luduvo friends data.
-
 use reqwest::{Client as ReqwestClient, StatusCode};
 use serde::Deserialize;
 use std::{
