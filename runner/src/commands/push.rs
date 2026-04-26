@@ -5,6 +5,7 @@ use crate::commands::publish;
 use crate::utils::command::run_command;
 
 pub fn run(
+    branch: String,
     title: String,
     description: Option<String>,
     verbose: bool,
@@ -49,7 +50,7 @@ pub fn run(
     run_command(
         ".".to_string(),
         "git".to_string(),
-        &["push".to_string(), "origin".to_string(), "main".to_string()],
+        &["push".to_string(), "origin".to_string(), branch.to_string()],
         no_output,
     )?;
 

@@ -44,6 +44,8 @@ pub enum Commands {
 
     #[command(about = "push your changes to the luduvo-rs repo")]
     Push {
+        branch: String,
+
         #[arg(short, long)]
         title: String,
 

@@ -1,3 +1,5 @@
+#![allow(unused)]
+
 use anyhow::Result;
 use clap::Parser;
 use dotenvy::dotenv;
@@ -23,10 +25,11 @@ fn main() -> Result<()> {
         Commands::Test { crates } => commands::test::run(crates, cli.verbose, cli.no_output),
 
         Commands::Push {
+            branch,
             title,
             description,
             publish,
-        } => commands::push::run(title, description, cli.verbose, publish, cli.no_output),
+        } => commands::push::run(branch, title, description, cli.verbose, publish, cli.no_output),
 
         Commands::New {
             crate_name,
