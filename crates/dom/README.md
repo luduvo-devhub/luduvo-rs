@@ -3,10 +3,8 @@
 </p>
 
 <p align="center">
-  <a href="https://discord.gg/FcjTvuWKRk">luduvo development hub</a>
+  <a href="(https://crates.io/crates/luduvo-dom">crates.io</a> | <a href="https://discord.gg/FcjTvuWKRk">luduvo development hub</a>
 </p>
-
-[![crates.io](https://img.shields.io/crates/v/luduvo-dom.svg)](https://crates.io/crates/luduvo-dom)
 
 ---
 
