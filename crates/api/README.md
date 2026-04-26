@@ -25,7 +25,7 @@
 
 ## installation
 
-luduvo-api is currently not on crates.io - i'm waiting for the post-delete cooldown to end.
+you can install luduvo-api on crates.io.
 
 ```
 cargo add luduvo-api

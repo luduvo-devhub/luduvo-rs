@@ -25,7 +25,7 @@
 
 ## installation
 
-you can install luduvo-verify on crates.io:
+you can install luduvo-verify on crates.io.
 
 ```
 cargo add luduvo-verify

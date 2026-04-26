@@ -25,7 +25,7 @@
 
 ## installation
 
-luduvo-dom is currently not on crates.io - i'm waiting for the post-delete cooldown to end.
+you can install luduvo-dom on crates.io.
 
 ```
 cargo add luduvo-dom
